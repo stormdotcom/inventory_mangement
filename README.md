@@ -1,27 +1,30 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import cors from 'cors';
-import morgan from 'morgan';
-import invoiceRoutes from './routes/invoiceRoutes.js';
-import productRoutes from './routes/productRoutes.js';
-import userRoutes from './routes/userRoutes.js';
-import { errorHandler } from './middlewares/errorMiddleware.js';
-import { loggerMiddleware } from './middlewares/loggerMiddleware.js';
+# Inventory Management System API
 
-const app = express();
+## Introduction
 
-// Middleware
-app.use(bodyParser.json());
-app.use(cors());
-app.use(morgan('combined'));
-app.use(loggerMiddleware);
+The Inventory Management System API is designed to help businesses manage their inventory efficiently. This system allows users to add, update, and delete inventory items, track stock levels, and generate reports through a RESTful API.
 
-// Routes
-app.use('/api/invoices', invoiceRoutes);
-app.use('/api/products', productRoutes);
-app.use('/api/users', userRoutes);
+## Features
 
-// Error handling middleware
-app.use(errorHandler);
+- Add new inventory items
+- Update existing inventory items
+- Delete inventory items
+- Track stock levels
+- Generate inventory reports
+- User authentication and authorization
 
-export default app;
+## Technologies Used
+
+- Node.js
+- Express.js
+- PostgreSQL
+- Knex.js (SQL query builder)
+- Objection.js (ORM)
+- JWT (JSON Web Tokens) for authentication
+
+## Installation
+
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/stormdotcom/inventory-management.git
+   cd inventory-management
